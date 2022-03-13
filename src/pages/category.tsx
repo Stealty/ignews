@@ -4,9 +4,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Inicio | Ignite News</title>
+        <title>Categorias | Ignite News</title>
       </Head>
-      <h1>Hello World</h1>
+      <h1>Categorias</h1>
     </>
   );
 }
