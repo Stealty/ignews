@@ -6,7 +6,6 @@ import GoogleProvider from "next-auth/providers/google";
 import { fauna } from "../../../services/fauna";
 
 export default NextAuth({
-  // Configure one or more authentication providers
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
@@ -20,6 +19,7 @@ export default NextAuth({
       },
     }),
   ],
+
   // #to fix "JWT_AUTO_GENERATED_SIGNING_KEY"
   // jwt: {
   //   signingKey: process.env.SIGNING_KEY,
