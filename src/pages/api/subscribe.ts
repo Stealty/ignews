@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 import { fauna } from "../../services/fauna";
 import { stripe } from "../../services/stripe";
-import { query as q, Ref } from "faunadb";
+import { query as q } from "faunadb";
 
 type User = {
   ref: {
