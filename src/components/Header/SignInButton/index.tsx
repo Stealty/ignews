@@ -2,11 +2,9 @@ import { FaGoogle } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
 import styles from "./styles.module.scss";
 import { signIn, signOut, useSession } from "next-auth/react";
-import users from "../../../pages/api/users";
 
 export function SignInButton() {
   const { data: session } = useSession();
-  console.log(users);
 
   return session ? (
     <button
