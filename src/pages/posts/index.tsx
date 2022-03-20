@@ -1,9 +1,12 @@
 import Prismic from "@prismicio/client";
+import { RichText } from "prismic-dom";
 import { GetStaticProps } from "next";
-import getPrismicClient from "../../services/prismic";
 import Head from "next/head";
-import styles from "./styles.module.scss";
 import Link from "next/link";
+
+import { getPrismicClient } from "../../services/prismic";
+
+import styles from "./styles.module.scss";
 
 type Post = {
   slug: string;
@@ -20,7 +23,7 @@ export default function Posts({ posts }: PostsProps) {
   return (
     <>
       <Head>
-        <title>Posts | Ignews</title>
+        <title>Posts | ignews</title>
       </Head>
 
       <main className={styles.container}>
@@ -44,14 +47,12 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
   const response = await prismic.query<any>(
-    [Prismic.predicates.at("document.type", "post")],
+    [Prismic.Predicates.at("document.type", "post")],
     {
       fetch: ["post.title", "post.content"],
       pageSize: 100,
     }
   );
-
-  console.log(response);
 
   const posts = response.results.map((post) => {
     return {
@@ -59,7 +60,7 @@ export const getStaticProps: GetStaticProps = async () => {
       title: post.data.title,
       excerpt:
         post.data.content.find((content) => content.type === "paragraph")
-          ?.text ?? " ",
+          ?.text ?? "",
       updatedAt: new Date(post.last_publication_date).toLocaleDateString(
         "pt-BR",
         {

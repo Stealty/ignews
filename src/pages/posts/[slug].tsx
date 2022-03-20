@@ -1,8 +1,9 @@
-import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
-import Head from "next/head";
+import { GetServerSideProps } from "next";
 import { RichText } from "prismic-dom";
-import getPrismicClient from "../../services/prismic";
+import Head from "next/head";
+
+import { getPrismicClient } from "../../services/prismic";
 
 import styles from "./post.module.scss";
 
@@ -22,10 +23,11 @@ export default function Post({ post }: PostProps) {
         <title>{post.title} | Ignews</title>
       </Head>
 
-      <main className={styles.content}>
+      <main className={styles.container}>
         <article className={styles.post}>
           <h1>{post.title}</h1>
           <time>{post.updatedAt}</time>
+
           <div
             className={styles.postContent}
             dangerouslySetInnerHTML={{ __html: post.content }}
@@ -45,13 +47,22 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   console.log(session);
 
+  if (!session.activeSubscription) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   const prismic = getPrismicClient(req);
 
   const response = await prismic.getByUID<any>("post", String(slug), {});
 
   const post = {
     slug,
-    title: response.data.title,
+    title: RichText.asText(response.data.title),
     content: RichText.asHtml(response.data.content),
     updatedAt: new Date(response.last_publication_date).toLocaleDateString(
       "pt-BR",

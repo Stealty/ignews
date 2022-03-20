@@ -7,8 +7,6 @@ export async function saveSubscription(
   customerId: string,
   createAction: boolean
 ) {
-  //search user with ID{customerId} on FaunaDB // Save subscription data on FaunaDB
-
   const userRef = await fauna.query(
     q.Select(
       "ref",
