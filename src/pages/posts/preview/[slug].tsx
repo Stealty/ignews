@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { RichText } from "prismic-dom";
 import Link from "next/link";
 import Head from "next/head";
@@ -56,9 +56,15 @@ export default function PostPreview({ post }: PostPreviewProps) {
   );
 }
 
-export const getStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [],
+    paths: [
+      {
+        params: {
+          slug: "elixir-por-tras-da-linguagem-de-programacao-brasileira",
+        },
+      },
+    ],
     fallback: "blocking",
   };
 };
@@ -87,5 +93,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { post },
+    redirect: 60 * 30,
   };
 };
