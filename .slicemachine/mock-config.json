@@ -1,13 +1,8 @@
 {
   "_cts": {
-    "publication": {
-      "Title": {
-        "config": {
-          "patternType": "HEADING",
-          "blocks": 1
-        }
-      },
-      "Content": {
+    "publication": {},
+    "post": {
+      "content": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1

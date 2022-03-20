@@ -1,21 +1,6 @@
 {
-  "id": "e545dbb3-832d-4405-8794-95d33d6fa3da",
-  "uid": "et-voluptatem-omnis",
+  "id": "1a36ddd5-d934-4e6e-8492-7ee99e2425c5",
+  "uid": "suscipit-quidem-nulla",
   "type": "publication",
-  "data": {
-    "Title": [
-      {
-        "type": "heading1",
-        "text": "Architect global bandwidth",
-        "spans": []
-      }
-    ],
-    "Content": [
-      {
-        "type": "paragraph",
-        "text": "Occaecat irure exercitation voluptate est consectetur pariatur cillum nulla deserunt. Et qui dolore ullamco qui dolore qui. Laboris aliquip exercitation aliquip velit sint culpa esse magna nulla incididunt excepteur adipisicing dolore.",
-        "spans": []
-      }
-    ]
-  }
+  "data": {}
 }
