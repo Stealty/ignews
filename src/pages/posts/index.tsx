@@ -51,13 +51,15 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   );
 
+  console.log(response);
+
   const posts = response.results.map((post) => {
     return {
       slug: post.uid,
       title: post.data.title,
       excerpt:
         post.data.content.find((content) => content.type === "paragraph")
-          ?.text ?? "",
+          ?.text ?? " ",
       updatedAt: new Date(post.last_publication_date).toLocaleDateString(
         "pt-BR",
         {
