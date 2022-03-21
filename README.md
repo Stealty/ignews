@@ -39,6 +39,7 @@
       aria-label="Print da página Home do site Ignews."
     />
   </li>
+  <hr>
   <li>
     A página de posts tem um resumo dos posts mais acessados para aqueles que
     não tem a assinatura do App. <br />
@@ -50,6 +51,7 @@
       aria-label="Print da página de posts do site Ignews para usuários sem assinatura, onde só é exibido um resumo dos posts mais acessados"
     />
   </li>
+  <hr>
   <li>
     Página interna de um post, com informações mais detalhadas. <br />
     só pode ser acessada por usuários com assinatura ativa.
@@ -59,4 +61,5 @@
       aria-label="Print da página interna de um dos posts com informações mais detalhadas. A seguir as informações do post selecionado: "
     />
   </li>
+  <hr>
 </ol>
