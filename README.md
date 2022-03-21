@@ -41,6 +41,21 @@
   </li>
   <hr>
   <li>
+    <p>
+      Página de login com o Google. Ao clicar em Login você é redirecionado para ela e após logar a cor do icone do Google é alterada.
+      Sempre que você fizer login você é redirecionado para a página que você estava anteriormente. Se você estiver na preview de um post é redirecionado para o post completo, caso você tenha assinatura ativa.
+    </p>
+    <img src="https://imagensbrasil.org/images/2022/03/21/loginGoogle.jpg" alt="Print da página de login com o Google" aria-label="Print da página de login com o Google, mostrando o seu usuário e a opção de usar outra conta.">
+  </li>
+  <hr>
+  <li>
+    <p>
+      Página de assinatura com cartão de crédito via Stripe. Ao completar a assinatura o usuário é redirecionado para a página anterior.
+    </p>
+    <img src="https://imagensbrasil.org/images/2022/03/21/img3.jpg" alt="Print da pagina de assinatura do app Ignews" aria-label="Print da página de assinatura do app com campos de dados do cartão, endereço e dados do usuário.">
+  </li>
+  <hr>
+  <li>
     A página de posts tem um resumo dos posts mais acessados para aqueles que
     não tem a assinatura do App. <br />
     Usuários sem assinatura são redirecionados para a página Home caso tentem
@@ -60,6 +75,7 @@
       alt="Print da página interna de um dos posts com informações mais detalhadas."
       aria-label="Print da página interna de um dos posts com informações mais detalhadas. A seguir as informações do post selecionado: "
     />
+    
   </li>
   <hr>
 </ol>
