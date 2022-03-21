@@ -68,6 +68,12 @@
   </li>
   <hr>
   <li>
+    <p>Preview da página do post com um resumo das informações. Para acessar a página completa do post basta realizar o login com o Google e ter a assinatura ativa.
+    </p>
+    <img src="https://imagensbrasil.org/images/2022/03/21/preview.jpg" alt="Print de um preview da página interna do post com opção de assinatura abaixo do resumo das informações." aria-label="Print de um preview da página interna do post com opção de assinatura abaixo do resumo das informações e botão de login com Google no header.">
+  </li>
+  <hr>
+  <li>
     Página interna de um post, com informações mais detalhadas. <br />
     só pode ser acessada por usuários com assinatura ativa.
     <img
