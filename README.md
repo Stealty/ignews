@@ -74,8 +74,9 @@
   </li>
   <hr>
   <li>
-    Página interna de um post, com informações mais detalhadas. <br />
-    só pode ser acessada por usuários com assinatura ativa.
+    Página interna de um post, com informações mais detalhadas.
+    <br />
+    Só pode ser acessada por usuários com assinatura ativa.
     <br />
     <img
       src="https://imagensbrasil.org/images/2022/03/21/img4.jpg"
