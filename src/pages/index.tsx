@@ -1,24 +1,16 @@
+import React from "react";
 import { GetStaticProps } from "next";
-
+import Image from "next/image";
 import Head from "next/head";
+
 import { SubscribeButton } from "../components/SubscribeButton";
-import { stripe } from "../services/stripe";
-
 import styles from "./home.module.scss";
-
-// Client-side (mais performatico)
-// Server-side (mais demorado)
-// Static Site Generation
-
-// Exemplo de um blog
-
-// Conteudo de um post (SSG)
-// Comentários dentro do post (Client-side)
+import { stripe } from "../services/stripe";
 
 interface HomeProps {
   product: {
     priceId: string;
-    amount: number;
+    amount: string;
   };
 }
 
@@ -26,31 +18,35 @@ export default function Home({ product }: HomeProps) {
   return (
     <>
       <Head>
-        <title>Home | Ignite News</title>
+        <title>Home | ig.news</title>
       </Head>
 
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
-          <span>👏🏻 Hey, welcome</span>
+          <span>👏 Hey, welcome</span>
           <h1>
-            News about the <span>React</span> world.
+            News about <br /> the <span>React</span> word.
           </h1>
           <p>
-            Get acess to all the publications <br />
+            Get access to all the publications <br />
             <span>for {product.amount} month</span>
           </p>
-          <SubscribeButton priceId={product.priceId} />
+          <SubscribeButton />
         </section>
-        <img src="./images/avatar.svg" alt="Girl Codding" />
+
+        <Image
+          src="./images/avatar.svg"
+          alt="girl coding"
+          width={176}
+          height={176}
+        />
       </main>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const price = await stripe.prices.retrieve("price_1KcsiFEfWGlYtwu9cplS6DKe", {
-    expand: ["product"],
-  });
+  const price = await stripe.prices.retrieve("price_1LYv3GEnKha8QJxRqAzdRVDf");
 
   const product = {
     priceId: price.id,
@@ -64,6 +60,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       product,
     },
-    revalidate: 60 * 60 * 24, // 24hours
+    revalidate: 60 * 60 * 24, // 24 hours
   };
 };
