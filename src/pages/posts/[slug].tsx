@@ -1,8 +1,7 @@
+import { GetStaticProps } from "next";
 import { getSession } from "next-auth/react";
-import { GetServerSideProps } from "next";
-import { RichText } from "prismic-dom";
 import Head from "next/head";
-
+import { RichText } from "prismic-dom";
 import { getPrismicClient } from "../../services/prismic";
 
 import styles from "./post.module.scss";
@@ -27,7 +26,6 @@ export default function Post({ post }: PostProps) {
         <article className={styles.post}>
           <h1>{post.title}</h1>
           <time>{post.updatedAt}</time>
-
           <div
             className={styles.postContent}
             dangerouslySetInnerHTML={{ __html: post.content }}
@@ -38,10 +36,10 @@ export default function Post({ post }: PostProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
+export const getServerSideProps: GetStaticProps = async ({
   req,
   params,
-}) => {
+}: any) => {
   const session = await getSession({ req });
   const { slug } = params;
 
@@ -60,9 +58,18 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const response = await prismic.getByUID<any>("post", String(slug), {});
 
+  if (!response) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   const post = {
-    slug,
-    title: response.data.title,
+    slug: response.uid,
+    title: RichText.asText(response.data.title),
     content: RichText.asHtml(response.data.content),
     updatedAt: new Date(response.last_publication_date).toLocaleDateString(
       "pt-BR",
@@ -75,6 +82,8 @@ export const getServerSideProps: GetServerSideProps = async ({
   };
 
   return {
-    props: { post },
+    props: {
+      post,
+    },
   };
 };
